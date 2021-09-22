@@ -88,3 +88,28 @@ if(CATKIN_ENABLE_TESTING)
     find_package(rostest REQUIRED)
     add_subdirectory(test)
 endif()
+
+
+install(
+  TARGETS
+    state_lattice_planner
+    lookup_table_generator
+    trajectory_viewer
+    # library
+    motion_model_diff_drive
+    trajectory_generator_diff_drive
+    lookup_table_generator_lib
+    state_lattice_planner_lib
+  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+
+install(
+  DIRECTORY
+    launch
+    config
+    lookup_table
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+)
